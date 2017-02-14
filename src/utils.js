@@ -67,8 +67,6 @@ export function operation (method, service, defaults = {}) {
   operation.tags = operation.tags || defaults.tags || [];
   operation.consumes = operation.consumes || defaults.consumes || [];
   operation.produces = operation.produces || defaults.produces || [];
-  operation.security = operation.security || defaults.security || [];
-  operation.securityDefinitions = operation.securityDefinitions || defaults.securityDefinitions || [];
       // Clean up
   delete service.docs[method]; // Remove `find` from `docs`
 
