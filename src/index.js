@@ -80,7 +80,8 @@ export default function init (config) {
       }
 
       const pathObj = rootDoc.paths;
-      const withIdKey = `/${path}/{${service.id || 'id'}}`;
+      const idKey = service.id || 'id';
+      const withIdKey = `/${path}/{${idKey}}`;
       const withoutIdKey = `/${path}`;
       const securities = doc.securities || [];
 
@@ -120,7 +121,7 @@ export default function init (config) {
             description: `ID of ${model} to return`,
             in: 'path',
             required: true,
-            name: 'resourceId',
+            name: idKey,
             type: 'integer'
           }],
           responses: {
@@ -160,7 +161,7 @@ export default function init (config) {
             description: 'ID of ' + model + ' to return',
             in: 'path',
             required: true,
-            name: 'resourceId',
+            name: idKey,
             type: 'integer'
           }, {
             in: 'body',
@@ -183,7 +184,7 @@ export default function init (config) {
             description: 'ID of ' + model + ' to return',
             in: 'path',
             required: true,
-            name: 'resourceId',
+            name: idKey,
             type: 'integer'
           }, {
             in: 'body',
@@ -206,7 +207,7 @@ export default function init (config) {
             description: 'ID of ' + model + ' to return',
             in: 'path',
             required: true,
-            name: 'resourceId',
+            name: idKey,
             type: 'integer'
           }],
           produces: rootDoc.produces,
